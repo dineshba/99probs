@@ -39,10 +39,10 @@ defmodule ListsTest do
   end
 
   test "is_palindrome" do
-    assert true == is_palindrome([])
-    assert true == is_palindrome([1])
-    assert true == is_palindrome([1, 2, 5, 2, 1])
-    refute true == is_palindrome([1, 2, 5])
+    assert is_palindrome([])
+    assert is_palindrome([1])
+    assert is_palindrome([1, 2, 5, 2, 1])
+    refute is_palindrome([1, 2, 5])
   end
 
 end
