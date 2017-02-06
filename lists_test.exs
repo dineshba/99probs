@@ -27,4 +27,9 @@ defmodule ListsTest do
     assert 4 == len([1, 2, 5, 4])
   end
 
+  test "number of elements in tail recursion" do
+    assert 0 == len_with_tail_recursion([])
+    assert 4 == len_with_tail_recursion([1, 2, 5, 4])
+  end
+
 end
