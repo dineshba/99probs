@@ -38,4 +38,11 @@ defmodule ListsTest do
     assert [4, 5, 2, 1] == reverse([1, 2, 5, 4])
   end
 
+  test "is_palindrome" do
+    assert true == is_palindrome([])
+    assert true == is_palindrome([1])
+    assert true == is_palindrome([1, 2, 5, 2, 1])
+    refute true == is_palindrome([1, 2, 5])
+  end
+
 end

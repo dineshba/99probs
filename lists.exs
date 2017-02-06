@@ -20,4 +20,6 @@ defmodule Lists do
   defp reverse([], acc), do: acc
   defp reverse([h | t], acc), do: reverse(t, [h | acc])
 
+  def is_palindrome(list), do: list == reverse(list)
+
 end
