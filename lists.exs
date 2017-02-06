@@ -16,4 +16,8 @@ defmodule Lists do
   defp _len_with_tail_recursion([], acc), do: acc
   defp _len_with_tail_recursion([_h | t], acc), do: _len_with_tail_recursion(t, acc + 1)
 
+  def reverse(list), do: reverse(list, [])
+  defp reverse([], acc), do: acc
+  defp reverse([h | t], acc), do: reverse(t, [h | acc])
+
 end

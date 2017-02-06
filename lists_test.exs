@@ -32,4 +32,10 @@ defmodule ListsTest do
     assert 4 == len_with_tail_recursion([1, 2, 5, 4])
   end
 
+  test "reverse the list" do
+    assert [] == reverse([])
+    assert [1] == reverse([1])
+    assert [4, 5, 2, 1] == reverse([1, 2, 5, 4])
+  end
+
 end
