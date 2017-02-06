@@ -17,4 +17,9 @@ defmodule ListsTest do
     assert 3 == last_but_one([1, 2, 3, 4])
   end
 
+  test "K'th element" do
+    assert 1 == k_th_element([1, 2], 1)
+    assert 5 == k_th_element([1, 2, 5, 4], 3)
+  end
+
 end
