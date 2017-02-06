@@ -22,4 +22,9 @@ defmodule ListsTest do
     assert 5 == k_th_element([1, 2, 5, 4], 3)
   end
 
+  test "number of elements" do
+    assert 0 == len([])
+    assert 4 == len([1, 2, 5, 4])
+  end
+
 end

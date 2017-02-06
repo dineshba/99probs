@@ -9,4 +9,7 @@ defmodule Lists do
   def k_th_element([h | t], 1), do: h
   def k_th_element([_h | t], k), do: k_th_element(t, k - 1)
 
+  def len([]), do: 0
+  def len([_h | t]), do: 1 + len(t)
+
 end
