@@ -22,4 +22,8 @@ defmodule Lists do
 
   def is_palindrome(list), do: list == reverse(list)
 
+  def flatten([]), do: []
+  def flatten([h | t]) when is_list(h), do: flatten(h) ++ flatten(t)
+  def flatten([h | t]), do: [h | flatten(t)]
+
 end

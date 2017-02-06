@@ -45,4 +45,10 @@ defmodule ListsTest do
     refute is_palindrome([1, 2, 5])
   end
 
+  test "flatten the list" do
+    assert [] == flatten([])
+    assert [1, 1] == flatten([1, [1]])
+    assert [1, 2, 5, 4] == flatten([1, [[2], 5], 4])
+  end
+
 end
