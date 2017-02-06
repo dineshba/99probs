@@ -26,4 +26,8 @@ defmodule Lists do
   def flatten([h | t]) when is_list(h), do: flatten(h) ++ flatten(t)
   def flatten([h | t]), do: [h | flatten(t)]
 
+  def eliminate_consecutive_duplicates([]), do: []
+  def eliminate_consecutive_duplicates([h, h | t]), do: eliminate_consecutive_duplicates([h | t])
+  def eliminate_consecutive_duplicates([h | t]), do: [h | eliminate_consecutive_duplicates(t)]
+
 end

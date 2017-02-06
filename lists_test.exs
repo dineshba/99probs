@@ -51,4 +51,10 @@ defmodule ListsTest do
     assert [1, 2, 5, 4] == flatten([1, [[2], 5], 4])
   end
 
+  test "eliminate consecutive duplicates" do
+    assert [] == eliminate_consecutive_duplicates([])
+    assert [1] == eliminate_consecutive_duplicates([1, 1])
+    assert [1, 2, 5, 1] == eliminate_consecutive_duplicates([1, 2, 2, 2, 5, 5, 1, 1])
+  end
+
 end
