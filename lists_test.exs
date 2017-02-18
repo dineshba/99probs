@@ -85,4 +85,14 @@ defmodule ListsTest do
     assert [1, 1, 1, 2, 2, 2] == duplicate([1,2], 3)
   end
 
+  test "drop every nth element in the list" do
+    assert [] == drop_every([], 2)
+    assert [1, 1, 2, 2] == drop_every([1, 1, 1, 2, 2, 2], 3)
+  end
+
+  test "split list into 2 with given length of first" do
+    assert [] == slice([], 2)
+    assert [[1, 1, 1], [2, 2, 2]] == slice([1, 1, 1, 2, 2, 2], 3)
+  end
+
 end

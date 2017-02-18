@@ -55,4 +55,14 @@ defmodule Lists do
   def duplicate(list, repeater \\ 2), do: _duplicate(list, repeater)
   defp _duplicate([], _repeater), do: []
   defp _duplicate([h | t], repeater), do: repeat(h, repeater) ++ duplicate(t, repeater)
+
+  def drop_every(list, ref), do: _drop_every(list, ref, 1)
+  defp _drop_every([], _, _), do: []
+  defp _drop_every([h | t], ref, ref), do: _drop_every(t, ref, 1)
+  defp _drop_every([h | t], ref, count), do: [h | _drop_every(t, ref, count + 1)]
+
+  def slice([], _count), do: []
+  def slice([h | t], count), do: _slice(t, count - 1, [h])
+  defp _slice([h | t], 1, acc), do: [acc ++ [h], t]
+  defp _slice([h | t], count, acc), do: _slice(t, count - 1, acc ++ [h])
 end
