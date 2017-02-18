@@ -75,4 +75,14 @@ defmodule ListsTest do
     assert [1, 2, 2, 2, 5, 5, 1] == run_length_decoder([1, [2, 3], [5, 2], 1])
   end
 
+  test "duplicate the elements in the list" do
+    assert [] == duplicate([])
+    assert [1,1,2,2] == duplicate([1,2])
+  end
+
+  test "duplicate the elements in the list n times" do
+    assert [] == duplicate([], 2)
+    assert [1, 1, 1, 2, 2, 2] == duplicate([1,2], 3)
+  end
+
 end

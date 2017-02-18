@@ -51,4 +51,8 @@ defmodule Lists do
   def run_length_decoder([h | t]), do: [h | run_length_decoder(t)]
   defp repeat(x, 1), do: [x]
   defp repeat(x, n), do: [x | repeat(x, n-1)]
+
+  def duplicate(list, repeater \\ 2), do: _duplicate(list, repeater)
+  defp _duplicate([], _repeater), do: []
+  defp _duplicate([h | t], repeater), do: repeat(h, repeater) ++ duplicate(t, repeater)
 end
