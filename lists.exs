@@ -33,9 +33,16 @@ defmodule Lists do
   def pack_consecutive_duplicates([]), do: []
   def pack_consecutive_duplicates([h, h | t]), do: _pack_consecutive_duplicates([h | t], [h])
   def pack_consecutive_duplicates([h | t]), do: [[h] | pack_consecutive_duplicates(t)]
+  defp _pack_consecutive_duplicates([h], acc), do: [h | acc]
+  defp _pack_consecutive_duplicates([h, h], acc), do: [h, h | acc]
+  defp _pack_consecutive_duplicates([h, h | t], acc), do: _pack_consecutive_duplicates([h|t], [h|acc])
+  defp _pack_consecutive_duplicates([h | t], acc), do: [[h|acc] | pack_consecutive_duplicates(t)]
 
-  def _pack_consecutive_duplicates([h, h], acc), do: [h, h | acc]
-  def _pack_consecutive_duplicates([h, h | t], acc), do: _pack_consecutive_duplicates([h|t], [h|acc])
-  def _pack_consecutive_duplicates([h], acc), do: [h | acc]
-  def _pack_consecutive_duplicates([h | t], acc), do: [[h|acc] | pack_consecutive_duplicates(t)]
+  def run_length_encoder([]), do: []
+  def run_length_encoder([h|t]), do: count(h, t, 1)
+  defp count(h, [h|t], counter), do: count(h, t, counter + 1)
+  defp count(h, [h1|t], 1), do: [h | run_length_encoder([h1 | t])]
+  defp count(h, [h1|t], counter), do: [[h, counter] | run_length_encoder([h1 | t])]
+  defp count(h, [], 1), do: [h]
+  defp count(h, [], counter), do: [h, counter]
 end
