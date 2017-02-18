@@ -30,4 +30,12 @@ defmodule Lists do
   def eliminate_consecutive_duplicates([h, h | t]), do: eliminate_consecutive_duplicates([h | t])
   def eliminate_consecutive_duplicates([h | t]), do: [h | eliminate_consecutive_duplicates(t)]
 
+  def pack_consecutive_duplicates([]), do: []
+  def pack_consecutive_duplicates([h, h | t]), do: _pack_consecutive_duplicates([h | t], [h])
+  def pack_consecutive_duplicates([h | t]), do: [[h] | pack_consecutive_duplicates(t)]
+
+  def _pack_consecutive_duplicates([h, h], acc), do: [h, h | acc]
+  def _pack_consecutive_duplicates([h, h | t], acc), do: _pack_consecutive_duplicates([h|t], [h|acc])
+  def _pack_consecutive_duplicates([h], acc), do: [h | acc]
+  def _pack_consecutive_duplicates([h | t], acc), do: [[h|acc] | pack_consecutive_duplicates(t)]
 end

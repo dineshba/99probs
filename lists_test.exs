@@ -57,4 +57,10 @@ defmodule ListsTest do
     assert [1, 2, 5, 1] == eliminate_consecutive_duplicates([1, 2, 2, 2, 5, 5, 1, 1])
   end
 
+  test "Pack consecutive duplicates of list elements into sublists" do
+    assert [] == pack_consecutive_duplicates([])
+    assert [[1, 1], [2]] == pack_consecutive_duplicates([1, 1, 2])
+    assert [[1], [2, 2, 2], [5, 5], [1]] == pack_consecutive_duplicates([1, 2, 2, 2, 5, 5, 1])
+  end
+
 end
