@@ -69,4 +69,10 @@ defmodule ListsTest do
     assert [1, [2, 3], [5, 2], 1] == run_length_encoder([1, 2, 2, 2, 5, 5, 1])
   end
 
+  test "Run length decoding" do
+    assert [] == run_length_decoder([])
+    assert [1, 1, 2] == run_length_decoder([[1, 2], 2])
+    assert [1, 2, 2, 2, 5, 5, 1] == run_length_decoder([1, [2, 3], [5, 2], 1])
+  end
+
 end

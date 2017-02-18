@@ -45,4 +45,10 @@ defmodule Lists do
   defp count(h, [h1|t], counter), do: [[h, counter] | run_length_encoder([h1 | t])]
   defp count(h, [], 1), do: [h]
   defp count(h, [], counter), do: [h, counter]
+
+  def run_length_decoder([]), do: []
+  def run_length_decoder([[h, count] | t]), do: repeat(h, count) ++ run_length_decoder(t)
+  def run_length_decoder([h | t]), do: [h | run_length_decoder(t)]
+  defp repeat(x, 1), do: [x]
+  defp repeat(x, n), do: [x | repeat(x, n-1)]
 end
