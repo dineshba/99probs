@@ -100,4 +100,10 @@ defmodule ListsTest do
     assert [2, 2] == extract_slice([1, 1, 1, 2, 2, 2], 4, 5)
     assert [2, 2, 2] == extract_slice([1, 1, 1, 2, 2, 2, 2], 4, 8)
   end
+
+  test "rotate the list" do
+    assert [] == rotate([], 2)
+    assert [2, 2, 1, 1, 1, 2] == rotate([1, 1, 1, 2, 2, 2], 4)
+    assert [2, 2, 2, 1, 1, 1, 2] == rotate([1, 1, 1, 2, 2, 2, 2], 4)
+  end
 end

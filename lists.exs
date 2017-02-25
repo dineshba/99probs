@@ -73,4 +73,8 @@ defmodule Lists do
     [lhalf1, rhalf1] = slice(rhalf, ulimit)
     lhalf1
   end
+
+  def rotate([], _), do: []
+  def rotate([h | t], 1), do: t ++ [h]
+  def rotate([h | t], count), do: rotate(t ++ [h], count - 1)
 end
