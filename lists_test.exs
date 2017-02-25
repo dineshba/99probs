@@ -95,4 +95,9 @@ defmodule ListsTest do
     assert [[1, 1, 1], [2, 2, 2]] == slice([1, 1, 1, 2, 2, 2], 3)
   end
 
+  test "extract the list using the limits" do
+    assert [] == extract_slice([], 2, 3)
+    assert [2, 2] == extract_slice([1, 1, 1, 2, 2, 2], 4, 5)
+    assert [2, 2, 2] == extract_slice([1, 1, 1, 2, 2, 2, 2], 4, 8)
+  end
 end

@@ -63,6 +63,14 @@ defmodule Lists do
 
   def slice([], _count), do: []
   def slice([h | t], count), do: _slice(t, count - 1, [h])
+  defp _slice([h], _, acc), do: [acc ++ [h], []]
   defp _slice([h | t], 1, acc), do: [acc ++ [h], t]
   defp _slice([h | t], count, acc), do: _slice(t, count - 1, acc ++ [h])
+
+  def extract_slice([], _, _), do: []
+  def extract_slice([h | t], llimit, ulimit) do
+    [lhalf, rhalf] = slice([h | t], llimit)
+    [lhalf1, rhalf1] = slice(rhalf, ulimit)
+    lhalf1
+  end
 end
